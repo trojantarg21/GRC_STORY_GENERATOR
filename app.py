@@ -58,3 +58,32 @@ if uploaded_file:
     st.subheader("🛠️ Recommended Actions")
     for action in actions:
         st.write(f"- {action}")
+
+report = f"""
+==============================
+ CYBER INCIDENT REPORT
+==============================
+
+🚨 SUMMARY:
+{summary}
+
+📖 STORY:
+{story}
+
+⚠️ RISK LEVEL: {risk}
+
+🧠 WHAT THIS MEANS:
+{meaning}
+
+🛠️ RECOMMENDED ACTIONS:
+"""
+
+for action in actions:
+    report += f"• {action}\n"
+
+st.download_button(
+    label="📥 Download Report",
+    data=report,
+    file_name="cyber_incident_report.txt",
+    mime="text/plain"
+)
